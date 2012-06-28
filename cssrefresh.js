@@ -129,7 +129,11 @@
 			if ( typeof rel != 'string' || rel.length == 0 || rel == 'stylesheet' )
 			{
 				//check if google font api css request are made. If yes then skipt it.
-				if(this.getHref( elem ).search("google") == "-1")
+				if(
+					this.getHref( elem ).search("googleapis") == "-1" && 
+					this.getHref( elem ).search("w3schools") == "-1" &&
+					this.getHref( elem ).search("domain3") == "-1"
+				)
 				{
 					links.push({
 						'elem' : elem,
