@@ -52,7 +52,7 @@
 				}
 				tmp = req.getAllResponseHeaders();
 				tmp = tmp.split( '\n' );
-				tmp = this.array_filter( tmp, function ( value )
+				tmp = this.array_filter( tmp, function( value )
 				{
 					return value.toString().substring( 1 ) !== '';
 				});
@@ -96,7 +96,7 @@
 					if ( link.last != newTime )
 					{
 						//	reload
-						link.elem.setAttribute( 'href', this.getRandom( this.getHref( link.elem ) ) );
+						link.elem.setAttribute( 'href', this.getRandom( link.href ) );
 					}
 				}
 
@@ -126,21 +126,13 @@
 		{			
 			var elem = files[ a ],
 				rel = elem.rel;
-			if ( typeof rel != 'string' || rel.length == 0 || rel == 'stylesheet' )
+			if ( typeof rel != 'string' || rel.length == 0 || rel == 'autoload' )
 			{
-				//check if google font api css request are made. If yes then skipt it.
-				if(
-					this.getHref( elem ).search("googleapis") == "-1" && 
-					this.getHref( elem ).search("w3schools") == "-1" &&
-					this.getHref( elem ).search("domain3") == "-1"
-				)
-				{
-					links.push({
-						'elem' : elem,
-						'href' : this.getHref( elem ),
-						'last' : false
-					});
-				}
+				links.push({
+					'elem' : elem,
+					'href' : this.getHref( elem ),
+					'last' : false
+				});
 			}
 		}
 		this.reloadFile( links );

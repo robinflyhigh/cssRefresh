@@ -2,6 +2,6 @@ cssRefresh
 =======
 Based on http://cssrefresh.frebsite.nl/
 
-Have been using this since quite a some time but when you are using Google Font API or any other external CSS source then it used to try and realod that as well. Add a small patch to avoid doing that.
-
-Also a variable duration is defined to control interval of reload
+- Added a variable named duration to contorol the CSS reload time duration
+- All the <link> tags with rel="autoload" will only be reloaded
+- Include the script in your webpage: <script type="text/javascript" src="https://raw.githubusercontent.com/robinflyhigh/cssRefresh/master/cssrefresh.js"></script>
